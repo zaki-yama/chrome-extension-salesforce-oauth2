@@ -2,10 +2,9 @@ import * as React from 'react';
 import './Popup.scss';
 
 interface AppProps {
-    onClickLogin: () => void,
 }
 
-interface AppState {}
+interface AppState { }
 
 export default class Popup extends React.Component<AppProps, AppState> {
   constructor(props: AppProps, state: AppState) {
@@ -18,15 +17,15 @@ export default class Popup extends React.Component<AppProps, AppState> {
   }
 
   onClickLogin() {
-      console.log('clicked');
-        console.log(chrome.identity);
+    console.log('clicked');
+    console.log(chrome);
   }
 
   render() {
     return (
-        <div className="popupContainer">
-            <button onClick={this.onClickLogin}>Login</button>
-        </div>
-        )
+      <div className="popupContainer">
+        <button onClick={this.onClickLogin}>Login</button>
+      </div>
+    )
   }
 }
