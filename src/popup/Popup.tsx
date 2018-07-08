@@ -33,7 +33,7 @@ export default class Popup extends React.Component<AppProps, AppState> {
 
       const parseQueryString = (url) => {
         const res = {};
-        const hash = new URL(url).hash;
+        const hash = new URL(decodeURIComponent(url)).hash;
         // Remove #
         const pairs = hash.slice(1).split('&');
         for (let i = 0; pairs[i]; i++) {
