@@ -37,8 +37,8 @@ export default class Popup extends React.Component<AppProps, AppState> {
         // Remove first character `#`
         const pairs = hash.slice(1).split('&');
         for (let i = 0; pairs[i]; i++) {
-          var keyValue = pairs[i].split('=');
-          res[keyValue[0]] = keyValue[1];
+          const [key, value] = pairs[i].split('=');
+          res[key] = value;
         }
         return res;
       }
