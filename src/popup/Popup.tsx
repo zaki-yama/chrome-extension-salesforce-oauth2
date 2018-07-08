@@ -9,8 +9,8 @@ interface AppState { }
 const OAUTH_ENDPOINT = 'https://login.salesforce.com/services/oauth2/authorize';
 const CLIENT_ID = '3MVG9I1kFE5Iul2BYKzI252s0YFYfPhssmER1TlqMPEThx8Xu0I6lvvH1EI6LNlWRFDRVT9bbVQCIKUgP8bTI';
 
-const APP_ID = 'jedlgfncdibhobnepodlejklecicphgd';
-const REDIRECT_URI = `https://${APP_ID}.chromiumapp.org/provider_cb&response_type=token`;
+const REDIRECT_URI = chrome.identity.getRedirectURL('/provider_cb');
+
 
 export default class Popup extends React.Component<AppProps, AppState> {
   constructor(props: AppProps, state: AppState) {
@@ -26,7 +26,7 @@ export default class Popup extends React.Component<AppProps, AppState> {
     console.log('clicked');
     console.log(chrome);
     chrome.identity.launchWebAuthFlow({
-      url: `${OAUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`,
+      url: `${OAUTH_ENDPOINT}?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`,
       interactive: true
     }, (authorizeResponse) => {
       console.log(authorizeResponse);
