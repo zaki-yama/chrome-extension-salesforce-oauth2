@@ -22,5 +22,8 @@
         "128": "icon128.png"
     },
 
-    "permissions": ["identity"]
+    "permissions": [
+      "identity",
+      "storage"
+    ]
 }
